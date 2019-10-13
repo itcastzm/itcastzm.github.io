@@ -3,6 +3,7 @@
 分享技术
 ## 目录
 1. [前言](#README)
+1. [代码片段](#docs/code)
 
 ## 其他
 - [源码](https://github.com/itcastzm/itcastzm.github.io/)
