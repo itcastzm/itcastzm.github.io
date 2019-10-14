@@ -4,6 +4,7 @@
 ## 目录
 1. [前言](#README)
 1. [代码片段](#docs/code)
+1. [名人](#docs/famous_guys)
 
 ## 其他
 - [源码](https://github.com/itcastzm/itcastzm.github.io/)
