@@ -5,6 +5,7 @@
 1. [前言](#README)
 1. [代码片段](#docs/code)
 1. [名人](#docs/famous_guys)
+1. [Cmd Markdown 简明语法手册](#docs/markdown)
 
 ## 其他
 - [源码](https://github.com/itcastzm/itcastzm.github.io/)
