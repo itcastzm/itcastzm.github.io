@@ -66,6 +66,24 @@ app.listen(8000);
 console.log('listening on port 8000');
 ```
 
+### git修改文件夹/文件名大小写敏感问题解决
+#### 问题描述 
+git项目中出现了相同名字的、大小写不同的文件夹，是因为Windows环境下git配置ignorecase默认为true，不区分大小写，而Linux环境区分。
+如果本地分支在Windows，远程分支在Linux，那么当你把一个文件夹的小写改为大写，commit是不会体现这个变化，这样大写的文件夹就提交到了Linux服务器上，服务器会认为这是不同文件夹，因而出现了2份一样的文件夹，而里面的文件，可能一样，也可能不一样。
+如何解决Git的大小不敏感问题呢？
+方案一：设置Git大小写敏感：
+```shell
+//查看core.ignorecase 的值
+git config core.ignorecase
+//设置 大小写敏感
+git config core.ignorecase false
+```
+方案二：先删除文件，再添加进去（需要先备份文件夹）：
+```shell
+git rm ; git add  ;  git commit -m "rename file"
+```
+
+
 #### 统计页面加载
 ```javascript
     window.logInfo = {};  //统计页面加载时间
