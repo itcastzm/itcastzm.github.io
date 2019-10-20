@@ -1,6 +1,21 @@
 ## 经常使用的代码片段集锦
 
 
+###  [添加淘宝镜像](http://npm.taobao.org/)
+```shell
+// 1, 修改 下载仓库为淘宝镜像
+　 npm config set registry http://registry.npm.taobao.org/
+
+   npm config get registry  //查看当前npm的registry
+
+// 2, 如果要发布自己的镜像需要修改回来
+
+　 npm config set registry https://registry.npmjs.org/
+
+//3, 安装cnpm
+　npm install -g cnpm --registry=https://registry.npm.taobao.org
+
+```
 
 ### 获取摄像头视频音频流
 ```javascript
