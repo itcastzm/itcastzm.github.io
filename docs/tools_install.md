@@ -43,7 +43,9 @@ mysqld --install --console
 //再次  并注意观察控制台 打印出的密码  需要记住
 mysqld --initialize --console 
 ```
+
 6. 启动mysql服务
+
 ```shell
 net start mysql
 //如果说服务名无效
@@ -52,9 +54,10 @@ mysql --install
 // 显示服务安装成功，然后启动
 net start mysql
 //停止服务：net stop mysql
-
 ```
+
 7. 启动登录
+
 ```shell
 mysql -u root -p   //回车，输入默认的那个极其安全的密码。
 // 使用数据库：
