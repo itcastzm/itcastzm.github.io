@@ -115,7 +115,7 @@ function searchbar_listener(event) {
     // event.preventDefault();
     var q = $('input[name=search]').val();
     if (q !== '') {
-      var url = 'https://github.com/ruanyf/es6tutorial/search?utf8=✓&q=' + encodeURIComponent(q);
+      var url = 'https://github.com/itcastzm/itcastzm.github.io/search?utf8=✓&q=' + encodeURIComponent(q);
       window.open(url, '_blank');
       win.focus();
     }
@@ -124,7 +124,7 @@ function searchbar_listener(event) {
   if (event.which === 13) {
     var q = $('input[name=search]').val();
     if (q !== '') {
-      var url = 'https://github.com/ruanyf/es6tutorial/search?utf8=✓&q=' + encodeURIComponent(q);
+      var url = 'https://github.com/itcastzm/itcastzm.github.io/search?utf8=✓&q=' + encodeURIComponent(q);
       location.href = url;
     }
   }
@@ -340,7 +340,7 @@ function router() {
       window.disqus_shortname = 'es6';
       window.disqus_identifier = (location.hash ? location.hash.replace("#", "") : 'READEME');
       window.disqus_title = $(ditto.content_id + " h1").text();
-      window.disqus_url = 'http://es6.ruanyifeng.com/' + (location.hash ? location.hash.replace("#", "") : 'README');
+      window.disqus_url = 'https://itcastzm.github.io/' + (location.hash ? location.hash.replace("#", "") : 'README');
 
       // http://docs.disqus.com/developers/universal/
       (function() {

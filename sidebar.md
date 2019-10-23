@@ -6,6 +6,7 @@
 1. [代码片段](#docs/code)
 1. [名人](#docs/famous_guys)
 1. [Cmd Markdown 简明语法手册](#docs/markdown)
+1. [软件工具安装](#docs/tools_install)
 
 ## 其他
 - [源码](https://github.com/itcastzm/itcastzm.github.io/)

@@ -84,7 +84,7 @@ git rm ; git add  ;  git commit -m "rename file"
 ```
 
 
-#### 统计页面加载
+### 统计页面加载
 ```javascript
     window.logInfo = {};  //统计页面加载时间
     window.logInfo.openTime = performance.timing.navigationStart;
