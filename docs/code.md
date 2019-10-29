@@ -17,6 +17,23 @@
 
 ```
 
+### h5获取地理信息
+```javascript 
+        // H5 获取当前位置经纬度
+        var loc_lon = '', loc_lat = ''; // 经度,纬度
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(function (position) {
+                console.log('回调执行====开始====', position)
+                loc_lon = position.coords.longitude;
+                loc_lat = position.coords.latitude;
+                console.log('回调执行==结束==h5经度：' + loc_lon + '  h5纬度：' + loc_lat);
+            });
+        } else {
+            console.log("您的设备不支持定位功能");
+        }
+```
+
+
 ### 获取摄像头视频音频流
 ```javascript
 <!DOCTYPE html>
