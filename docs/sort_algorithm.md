@@ -374,6 +374,7 @@ LSD基数排序动图演示：
 [![基数排序](sort_algorithm/jishu_基数.gif)](docs/sort_algorithm/jishu_基数.gif)
 Radix Sort 动图演示 算法可视化来源：http://visualgo.net/
 基数排序JavaScript代码实现：
+```javascript 
 //LSD Radix Sort
 var counter = [];
 function radixSort(arr, maxDigit) {
@@ -399,5 +400,7 @@ function radixSort(arr, maxDigit) {
     }
     return arr;
 }
+```
+
 ### 参考
 [js十大排序算法](https://www.cnblogs.com/AlbertP/p/10847627.html)
