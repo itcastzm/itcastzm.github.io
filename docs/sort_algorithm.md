@@ -1,7 +1,7 @@
 ## js实现十种排序算法
 
 十大经典算法排序总结对比
-![十大算法复杂度比较](images/paixu/fuzadu.png)
+[![十大算法复杂度比较](images/sort/fuzadu.png)](images/sort/fuzadu.png)
 
 ### 冒泡排序
 冒泡排序须知：
@@ -12,8 +12,8 @@
 
 什么时候最慢（Worst Cases）：
 当输入的数据是反序时（写一个for循环反序输出数据不就行了，干嘛要用你冒泡排序呢，我是闲的吗。。。）
-冒泡排序动图演示：
-![冒泡演示图](images/paixu/maopao.gif)
+冒泡排序动图演示： 
+[![冒泡演示图](images/sort/maopao.gif)](images/sort/maopao.gif)
 冒泡排序JavaScript代码实现：
 ```javascript
 function bubbleSort(arr) {
