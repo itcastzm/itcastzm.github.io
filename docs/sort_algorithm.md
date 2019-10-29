@@ -214,24 +214,25 @@ function swap(arr, i, j) {
 ### 堆排序（Heap Sort）
 堆排序须知：
 堆排序可以说是一种利用堆的概念来排序的选择排序。分为两种方法：
-
 1. 大顶堆：每个节点的值都大于或等于其子节点的值，在堆排序算法中用于升序排列
 2. 小顶堆：每个节点的值都小于或等于其子节点的值，在堆排序算法中用于降序排列
+
 堆排序动图演示：
 [![堆排序](sort_algorithm/dui.gif)](docs/sort_algorithm/dui.gif)
-Heap Sort 动图演示 算法可视化来源：http://www.ee.ryerson.ca/~courses/coe428/sorting/heapsort.html
+Heap Sort 动图演示 算法可视化来源：`http://www.ee.ryerson.ca/~courses/coe428/sorting/heapsort.html`
 堆排序JavaScript代码实现：
-```javascript
-var len;    //因为声明的多个函数都需要数据长度，所以把len设置成为全局变量
 
+```javascript
+//因为声明的多个函数都需要数据长度，所以把len设置成为全局变量
+var len;    
 function buildMaxHeap(arr) {   //建立大顶堆
     len = arr.length;
     for (var i = Math.floor(len/2); i >= 0; i--) {
         heapify(arr, i);
     }
 }
-
-function heapify(arr, i) {     //堆调整
+ //堆调整
+function heapify(arr, i) {    
     var left = 2 * i + 1,
         right = 2 * i + 2,
         largest = i;
@@ -275,7 +276,7 @@ function heapSort(arr) {
 
 计数排序动图演示：
 [![计数排序](sort_algorithm/jishu.gif)](docs/sort_algorithm/jishu.gif)
-Counting Sort 动图演示 算法可视化来源：http://visualgo.net/
+Counting Sort 动图演示 算法可视化来源：`http://visualgo.net/`
 计数排序JavaScript代码实现：
 ```javascript
 function countingSort(arr, maxValue) {
@@ -305,7 +306,6 @@ function countingSort(arr, maxValue) {
 桶排序须知：
 桶排序是计数排序的升级版。它利用了函数的映射关系，高效与否的关键就在于这个映射函数的确定。
 为了使桶排序更加高效，我们需要做到这两点：
-
 1. 在额外空间充足的情况下，尽量增大桶的数量
 2. 使用的映射函数能够将输入的N个数据均匀的分配到K个桶中
 同时，对于桶中元素的排序，选择何种比较排序算法对于性能的影响至关重要。
@@ -363,7 +363,6 @@ function bucketSort(arr, bucketSize) {
 ### 基数排序（Radix Sort）
 基数排序须知：
 基数排序有两种方法：
-
 1. MSD 从高位开始进行排序
 2. LSD 从低位开始进行排序
 基数排序 vs 计数排序 vs 桶排序
@@ -374,7 +373,7 @@ function bucketSort(arr, bucketSize) {
 
 LSD基数排序动图演示：
 [![基数排序](sort_algorithm/jishu_基数.gif)](docs/sort_algorithm/jishu_基数.gif)
-Radix Sort 动图演示 算法可视化来源：http://visualgo.net/
+Radix Sort 动图演示 算法可视化来源：`http://visualgo.net/`
 基数排序JavaScript代码实现：
 ```javascript 
 //LSD Radix Sort
