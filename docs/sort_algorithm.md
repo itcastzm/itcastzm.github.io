@@ -123,7 +123,7 @@ function shellSort(arr) {
 自上而下的递归（所有递归的方法都可以用迭代重写，所以就有了第2种方法）
 自下而上的迭代
 在《数据结构与算法JavaScript描述》中，作者给出了自下而上的迭代方法。但是对于递归法，作者却认为：
-> However, it is not possible to do so in JavaScript, as the recursion goes too deep for the language to handle.  然而,在 JavaScript 中这种方式不太可行,因为这个算法的递归深度对它来讲太深了。
+` However, it is not possible to do so in JavaScript, as the recursion goes too deep for the language to handle.  然而,在 JavaScript 中这种方式不太可行,因为这个算法的递归深度对它来讲太深了。`
 
 说实话，我不太理解这句话。意思是JavaScript编译器内存太小，递归太深容易造成内存溢出吗？还望有大神能够指教。
 和选择排序一样，归并排序的性能不受输入数据的影响，但表现比选择排序好的多，因为始终都是O(n log n）的时间复杂度。代价是需要额外的内存空间
@@ -170,7 +170,8 @@ function merge(left, right)
 快速排序须知：
 又是一种分而治之思想在排序算法上的典型应用。本质上来看，快速排序应该算是在冒泡排序基础上的递归分治法。
 快速排序的名字起的是简单粗暴，因为一听到这个名字你就知道它存在的意义，就是快，而且效率高! 它是处理大数据最快的排序算法之一了。虽然Worst Case的时间复杂度达到了O(n²)，但是人家就是优秀，在大多数情况下都比平均时间复杂度为O(n log n) 的排序算法表现要更好，可是这是为什么呢，我也不知道。。。好在我的强迫症又犯了，查了N多资料终于在《算法艺术与信息学竞赛》上找到了满意的答案：
-> 快速排序的最坏运行情况是O(n²)，比如说顺序数列的快排。但它的平摊期望时间是O(n log n) ，且O(n log n)记号中隐含的常数因子很小，比复杂度稳定等于O(n log n)的归并排序要小很多。所以，对绝大多数顺序性较弱的随机数列而言，快速排序总是优于归并排序。
+`快速排序的最坏运行情况是O(n²)，比如说顺序数列的快排。但它的平摊期望时间是O(n log n) ，且O(n log n)记号中隐含的常数因子很小，比复杂度稳定等于O(n log n)的归并排序要小很多。所以，对绝大多数顺序性较弱的随机数列而言，快速排序总是优于归并排序。`
+
 快速排序动图演示：
 [![快速排序](sort_algorithm/kuaisu.gif)](docs/sort_algorithm/kuaisu.gif)
 Quick Sort 动图演示 算法可视化来源：http://visualgo.net/
@@ -209,6 +210,7 @@ function swap(arr, i, j) {
     arr[j] = temp;
 }
 ```
+
 ### 堆排序（Heap Sort）
 堆排序须知：
 堆排序可以说是一种利用堆的概念来排序的选择排序。分为两种方法：
