@@ -4,6 +4,7 @@
 ## 目录
 1. [前言](#README)
 1. [js代码片段](#docs/code)
+1. [git命令](#docs/git_command)
 1. [名人](#docs/famous_guys)
 1. [js 排序算法](#docs/sort_algorithm)
 1. [软件工具安装](#docs/tools_install)
