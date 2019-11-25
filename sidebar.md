@@ -10,6 +10,7 @@
 1. [软件工具安装](#docs/tools_install)
 1. [css代码片段](#docs/css_tips)
 1. [Cmd Markdown 简明语法手册](#docs/markdown)
+1. [深拷贝与浅比较](#docs/deepclone)
 
 ## 其他
 - [源码](https://github.com/itcastzm/itcastzm.github.io/)
