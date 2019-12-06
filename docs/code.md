@@ -1,7 +1,7 @@
-## 经常使用的代码片段集锦
+# 经常使用的代码片段集锦
 
 
-### 防抖 节流
+## 防抖 节流
 在进行窗口的resize、scroll，输入框内容校验等操作时，如果事件处理函数调用的频率无限制，会加重浏览器的负担，导致用户体验非常糟糕。此时我们可以采用debounce（防抖）和throttle（节流）的方式来减少调用频率，同时又不影响实际效果。 
 函数防抖
 函数防抖（debounce）：当持续触发事件时，一定时间段内没有再触发事件，事件处理函数才会执行一次，如果设定的时间到来之前，又一次触发了事件，就重新开始延时。 
@@ -95,12 +95,12 @@ function handle() {
 window.addEventListener('scroll', throttle(handle, 1000));
 ```
 在节流函数内部使用开始时间startTime、当前时间curTime与delay来计算剩余时间remaining，当remaining<=0时表示该执行事件处理函数了（保证了第一次触发事件就能立即执行事件处理函数和每隔delay时间执行一次事件处理函数）。如果还没到时间的话就设定在remaining时间后再触发 （保证了最后一次触发事件后还能再执行一次事件处理函数）。当然在remaining这段时间中如果又一次触发事件，那么会取消当前的计时器，并重新计算一个remaining来判断当前状态。
-#### 总结
+### 总结
 函数防抖：将几次操作合并为一此操作进行。原理是维护一个计时器，规定在delay时间后触发函数，但是在delay时间内再次触发的话，就会取消之前的计时器而重新设置。这样一来，只有最后一次操作能被触发。
 函数节流：使得一定时间内只触发一次函数。原理是通过判断是否到达一定时间来触发函数。
 区别： 函数节流不管事件触发有多频繁，都会保证在规定时间内一定会执行一次真正的事件处理函数，而函数防抖只是在最后一次事件后才触发一次函数。 比如在页面的无限加载场景下，我们需要用户在滚动页面时，每隔一段时间发一次 Ajax 请求，而不是在用户停下滚动页面操作时才去请求数据。这样的场景，就适合用节流技术来实现。
 
-###  [添加淘宝镜像](http://npm.taobao.org/)
+##  [添加淘宝镜像](http://npm.taobao.org/)
 ```shell
 // 1, 修改 下载仓库为淘宝镜像
 　 npm config set registry http://registry.npm.taobao.org/
@@ -116,7 +116,7 @@ window.addEventListener('scroll', throttle(handle, 1000));
 
 ```
 
-### h5获取地理信息
+## h5获取地理信息
 ```javascript 
         // H5 获取当前位置经纬度
         var loc_lon = '', loc_lat = ''; // 经度,纬度
@@ -133,7 +133,7 @@ window.addEventListener('scroll', throttle(handle, 1000));
 ```
 
 
-### 获取摄像头视频音频流
+## 获取摄像头视频音频流
 ```javascript
 <!DOCTYPE html>
 <html lang="en">
@@ -168,7 +168,7 @@ window.addEventListener('scroll', throttle(handle, 1000));
 ```
 
 
-### 一分钟搭建静态服务器
+## 一分钟搭建静态服务器
 
 ```javascript
 const serve = require('koa-static');
@@ -182,8 +182,8 @@ app.listen(8000);
 console.log('listening on port 8000');
 ```
 
-### git修改文件夹/文件名大小写敏感问题解决
-#### 问题描述 
+## git修改文件夹/文件名大小写敏感问题解决
+### 问题描述 
 git项目中出现了相同名字的、大小写不同的文件夹，是因为Windows环境下git配置ignorecase默认为true，不区分大小写，而Linux环境区分。
 如果本地分支在Windows，远程分支在Linux，那么当你把一个文件夹的小写改为大写，commit是不会体现这个变化，这样大写的文件夹就提交到了Linux服务器上，服务器会认为这是不同文件夹，因而出现了2份一样的文件夹，而里面的文件，可能一样，也可能不一样。
 如何解决Git的大小不敏感问题呢？
@@ -200,7 +200,7 @@ git rm ; git add  ;  git commit -m "rename file"
 ```
 
 
-### 统计页面加载
+## 统计页面加载
 ```javascript
     window.logInfo = {};  //统计页面加载时间
     window.logInfo.openTime = performance.timing.navigationStart;

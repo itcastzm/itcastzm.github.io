@@ -1,6 +1,6 @@
-## 常用快捷键
+# 常用快捷键
 
-### vscode
+## vscode
 选中一样的一个元素，多次 ctrl + d  多光标选中  返回上一个选中时ctrl+u
 win 下 alt + shift +鼠标拖放 /点选
 Shift+Ctrl 竖列选择 Ctrl+光标点击 选择多个编辑位点
