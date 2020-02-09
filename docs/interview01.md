@@ -155,10 +155,10 @@ function logProps(WrappedComponent) {
 - 避免用户操作报错,提供404页面或则错误提示页面
 
 ## 对PWA的了解
-[参考答案]
+>[参考答案]
 progressive web app：渐进式网页应用.可以将 Web 和 App 各自的优势融合在一起：渐进式、可响应、可离线、实现类似 App 的交互、即时更新、安全、可以被搜索引擎检索、可推送、可安装、可链接。其核心技术包括 App Manifest、Service Worker、Web Push，等等。
 ## 介绍下跨域
-[参考答案]
+>[参考答案]
 同源策略/SOP（Same origin policy）是一种约定，它是浏览器最核心也最基本的安全功能，如果缺少了同源策略，浏览器很容易受到XSS、CSFR等攻击, 同源策略要求两个通讯地址的协议、域名、端口号必须相同，否则两个地址的通讯将被浏览器视为不安全的，并被阻挡下来. 要突破SOP的限制,我们可以使用如下方式:
 - CORS 同域安全策略CORS是一种跨域资源请求机制，它要求当前域在响应报头添加Access-Control-Allow-Origin标签，从而允许指定域的站点访问当前域上的资源
 ```javascript
@@ -181,7 +181,9 @@ response header响应头
 ##  csrf跨站攻击怎么解决
 [参考答案]
 CSRF, 跨站请求伪造,它可以在用户毫不知情的情况下以用户名义伪造请求发送给受攻击站点，从而对用户或者网站造成攻击. 预防措施如下:
-- 服务器端验证HTTP Referer字段, Referer记录了该HTTP请求的来源地址•在请求地址中添加token并验证•在HTTP头中自定义属性并验证
+- 服务器端验证HTTP Referer字段, Referer记录了该HTTP请求的来源地址
+- 在请求地址中添加token并验证 
+- 在HTTP头中自定义属性并验证
 
 ## 用js写一个数组扁平化函数
 [参考答案]
