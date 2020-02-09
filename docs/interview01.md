@@ -143,6 +143,7 @@ function logProps(WrappedComponent) {
 
 ## 对PWA的了解
 progressive web app：渐进式网页应用.可以将 Web 和 App 各自的优势融合在一起：渐进式、可响应、可离线、实现类似 App 的交互、即时更新、安全、可以被搜索引擎检索、可推送、可安装、可链接。其核心技术包括 App Manifest、Service Worker、Web Push，等等。
+
 ## 介绍下跨域
 同源策略/SOP（Same origin policy）是一种约定，它是浏览器最核心也最基本的安全功能，如果缺少了同源策略，浏览器很容易受到XSS、CSFR等攻击, 同源策略要求两个通讯地址的协议、域名、端口号必须相同，否则两个地址的通讯将被浏览器视为不安全的，并被阻挡下来. 要突破SOP的限制,我们可以使用如下方式:
 - CORS 同域安全策略CORS是一种跨域资源请求机制，它要求当前域在响应报头添加Access-Control-Allow-Origin标签，从而允许指定域的站点访问当前域上的资源
@@ -159,6 +160,7 @@ res.setHeader("Access-Control-Allow-Origin","*");
 - JSONP 是JSON的一种“使用模式”，主要是利用script标签不受同源策略限制的特性，向跨域的服务器请求并返回一段JSON数据
 - iframe形式 通过设置相同的document.domain, 或者不同域通过window.name传递数据
 - 服务器代理
+
 ## Access-Control-Allow-Origin在服务端哪里配置
 response header响应头
 
@@ -234,6 +236,7 @@ function getUniqueItems(arr, num) {
 ```
 ## 页面上有1万个button如何绑定事件
 事件委托, 冒泡触发
+
 ## base64为什么能提升性能以及它的缺点是什么 
 优点:
 - 无额外请求
