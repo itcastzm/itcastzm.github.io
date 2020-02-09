@@ -4,6 +4,7 @@
 ## 目录
 1. [前言](#README)
 1. [js代码片段](#docs/code)
+1. [前端面试题](#docs/interview01)
 1. [cmd命令](#docs/cmd)
 1. [node参考资料](#docs/node)
 1. [git命令](#docs/git_command)
