@@ -154,7 +154,7 @@ cryptPwd('123456', getRandomSalt());
 ## MD5碰撞
 简单的说，就是两段不同的字符串，经过MD5运算后，得出相同的结果。
 
-网上有不少例子，这里就不赘述，直接上例子，参考(这里)[http://www.mscs.dal.ca/~selinger/md5collision/]
+网上有不少例子，这里就不赘述，直接上例子，参考[这里](http://www.mscs.dal.ca/~selinger/md5collision/)
 ```javascript
 function getHashResult(hexString){
 
