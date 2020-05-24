@@ -1,4 +1,5 @@
-# Nodejs：md5入门介绍及crypto模块的应用[转](https://www.cnblogs.com/ympjsc/p/12323656.html)
+# Nodejs：md5入门介绍
+及crypto模块的应用[转](https://www.cnblogs.com/ympjsc/p/12323656.html)
 ## 简介
 MD5（Message-Digest Algorithm）是计算机安全领域广泛使用的散列函数（又称哈希算法、摘要算法），主要用来确保消息的完整和一致性。常见的应用场景有密码保护、下载文件校验等。
 
