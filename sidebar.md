@@ -9,6 +9,7 @@
 1. [前端面试题](#docs/interview01)
 1. [cmd命令](#docs/cmd)
 1. [node参考资料](#docs/node)
+1. [node中md5](#docs/node_md5)
 1. [git命令](#docs/git_command)
 1. [名人](#docs/famous_guys)
 1. [软件工具安装](#docs/tools_install)
