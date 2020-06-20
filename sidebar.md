@@ -7,6 +7,7 @@
 1. [js 排序算法](#docs/sort_algorithm)
 1. [一起探讨 JavaScript 的对象](#docs/object)
 1. [前端面试题](#docs/interview01)
+1. [前端面试题2](#docs/interview02)
 1. [cmd命令](#docs/cmd)
 1. [node参考资料](#docs/node)
 1. [node中md5](#docs/node_md5)
