@@ -18,6 +18,7 @@
 1. [Cmd Markdown 简明语法手册](#docs/markdown)
 1. [深拷贝与浅比较](#docs/deepclone)
 1. [js最简解释器实现](#docs/compiler_js)
+1. [how_to_get_rich](#docs/how_to_get_rich)
 1. [ffmpeg](#docs/ffmpeg)
 
 ## 其他
