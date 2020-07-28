@@ -12,6 +12,7 @@
 1. [node参考资料](#docs/node)
 1. [node中md5](#docs/node_md5)
 1. [git命令](#docs/git_command)
+1. [Git常备的后悔药(转)](#docs/git_regret)
 1. [名人](#docs/famous_guys)
 1. [软件工具安装](#docs/tools_install)
 1. [css代码片段](#docs/css_tips)
