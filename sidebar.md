@@ -15,6 +15,7 @@
 1. [Git常备的后悔药(转)](#docs/git_regret)
 1. [名人](#docs/famous_guys)
 1. [软件工具安装](#docs/tools_install)
+1. [nginx介绍](#docs/nginx)
 1. [css代码片段](#docs/css_tips)
 1. [Cmd Markdown 简明语法手册](#docs/markdown)
 1. [深拷贝与浅比较](#docs/deepclone)
