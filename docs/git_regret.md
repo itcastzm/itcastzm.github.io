@@ -127,7 +127,7 @@ git checkout a18c6fa
 `git commit -m "add test block"`
 `git log`
 
-[![git_reset_hard2.png](git_regret/git_reset_hard2.png.png)](docs/git_regret/git_reset_hard2.png.png)
+[![git_reset_hard2](git_regret/git_reset_hard2.png)](docs/git_regret/git_reset_hard2.png)
 
 
 这样其实只提交了app.component.html一个文件，不是我们想要的。
