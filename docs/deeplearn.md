@@ -11,6 +11,9 @@ https://www.zybuluo.com/hanbingtao/note/433855
 吴恩达
 https://www.coursera.org/learn/machine-learning
 
+B站吴恩达
+https://www.bilibili.com/video/BV164411b7dx?from=search&seid=11732066833992695019
+
 台湾李宏毅 ppt
 https://www.slideshare.net/tw_dsconf/ss-62245351?qid=108adce3-2c3d-4758-a830-95d0a57e46bc&v=&b=&from_search=3
 
@@ -559,6 +562,131 @@ def estimate_house_sales_price(num_of_bedrooms, sqft, neighborhood):
 6. 请你思考
 1.在生物神经网络中，神经元之间的信息传递，是一种非常局部化的化学物质传递。试想一下，如果每个神经都接收传递物质，那么上亿的神经一起工作，那种能量的消耗是不可想象的。而现在的人工神经网络（深度学习），是依靠大型计算设备（如大规模集群、GPU等）来海量遍历调整网络中的参数，所以不耗能巨大才怪呢，因此你觉得深度学习还能从生物神经网络中学习什么吗？你觉得人工智能领域中的“飞鸟派”还有市场吗？为什么？
 2.其实，“卷积”在我们日常生活中比比皆是，你还能列举去其它的“卷积”函数吗？
+
+## 神经网络
+神经网络算法( Neural Network )是机器学习中非常非常重要的算法。这是整个深度学习的核心算法，深度学习就是根据神经网络算法进行的一个延伸。理解这个算法的是怎么工作也能为后续的学习打下一个很好的基础。
+
+### 背景
+
+神经网络是受神经元启发的，对于神经元的研究由来已久，1904年生物学家就已经知晓了神经元的组成结构。
+[![人脑神经网络]](deeplearn/Neural.jpg)](docs/deeplearn/Neural.jpg)
+
+- 1943年，心理学家McCulloch和数学家Pitts参考了生物神经元的结构，发表了抽象的神经元模型MP。
+- 1949年心理学家Hebb提出了Hebb学习率，认为人脑神经细胞的突触（也就是连接）上的强度上可以变化的。于是计算科学家们开始-考虑用调整权值的方法来让机器学习。这为后面的学习算法奠定了基础。
+- 1958年，计算科学家Rosenblatt提出了由两层神经元组成的神经网络。他给它起了一个名字--感知器（ Perceptron ）。
+- 1986年，Rumelhar和Hinton等人提出了反向传播（ Backpropagation ，BP）算法，这是最著名的一个神经网络算法。
+
+### 神经网络的构成
+多层神经网络由三部分组成：输入层( input layer ), 隐藏层 ( hidden layers ), 输出层 ( output layers )。
+
+[![神经网络的构成]](deeplearn/input-hide-output.png)](docs/deeplearn/input-hide-output.png)
+
+每一层都是有单元( units )组成，其中，输入层是由训练集中实例特征向量传入，根据连接点之间的权重传递到下一层，这样一层一层向前传递。
+
+输入层和输出层都只有一层，隐藏层的个数可以是任意的。神经网络的层数计算中不包括输入层，比方说一个神经网络中有2个隐藏层，我们就说这是一个3层的神经网络。
+
+作为多层向前神经网络，理论上，如果有足够多的隐藏层和训练集，是可以模拟出任何方程的。
+
+神经网络可以用来解决分类( classification ）问题，也可以解决回归( regression )问题。
+
+### 从单层到多层的神经网络
+
+由两层神经网络构成了单层神经网络，它还有个别名———— 感知器 。
+[![单层神经网络]](deeplearn/Perceptron.jpg)](docs/deeplearn/Perceptron.jpg)
+
+如图中，有3个输入，连接线的权值分别是 w1, w2, w3。将输入与权值进行乘积然后求和，作为 z 单元的输入，如果 z 单元是函数 g ，那么就有 z = g(a1 * w1 + a2 * w2 + a3 * w3) 。
+
+单层神经网络的扩展，也是一样的计算方式：
+
+[![单层神经网络的扩展]](deeplearn/Perceptron_ext.jpg)](docs/deeplearn/Perceptron_ext.jpg)
+
+在多层神经网络中，只不过是将输出作为下一层的输入，一样是乘以权重然后求和：
+
+[![多层神经网络]](deeplearn/multi_nn.jpg)](docs/deeplearn/multi_nn.jpg)
+
+
+### 设计神经网络结构
+使用神经网络进行训练之前，必须确定神经网络的层数，以及每一层中单元的个数。整个训练过程就是调整连接点之间的权重值。
+
+特征向量在被传入输入层前，通常要先标准化为 0 到 1 之间的数，这是为了加速学习过程。
+
+对于分类问题，如果是两类，可以用一个输出单元（0 和 1 表示分类结果）进行表示。如果是多分类问题，则每一个类别用一个输出单元表示。分类问题中，输出层单元个数通常等于类别的数量。
+
+目前没有明确的规则来设计最好有多少个隐藏层，通常是根据实验测试和误差，以及准确度来进行改进。
+
+### 交叉验证方法
+如何来预测准确度呢？在SVM的应用篇中，有个方法就是将数据集分为两类，训练集和测试集，利用测试集的数据将模型的预测结果进行对比，得出准确度。这里介绍另一个常用但更科学的方法————交叉验证方法( Cross-Validation )。
+
+[![交叉验证方法]](deeplearn/Cross-Validation.jpg)](docs/deeplearn/Cross-Validation.jpg)
+
+这个方法不局限于将数据集分成两份，它可以分成 k 份。用第一份作为训练集，其余作为测试集，得出这一部分的准确度 ( evaluation )。再用第二份作为训练集，其余作为测试集，得出这第二部分的准确度。以此类推，最后取各部分的准确度的平均值。从而可以得到设计多少层最佳。
+
+## BP 算法
+
+BP 算法 ( BackPropagation )是多层神经网络的训练一个核心的算法。目的是更新每个连接点的权重，从而减小预测值( predicted value )与真实值 ( target value )之间的差距。输入一条训练数据就会更新一次权重，反方向（从输出层=>隐藏层=>输入层）来以最小化误差（error）来更新权重（weitht）。
+
+在训练神经网络之前，需要初始化权重( weights )和偏向( bias )，初始化是随机值， -1 到 1 之间，每个单元有一个偏向。
+
+算法详细介绍
+数据集用 D 表示，学习率用 l 表示。对于每一个训练实例 X，都是一样的步骤。
+
+[![bp算法]](deeplearn/bp_nn.png)](docs/deeplearn/bp_nn.png)
+
+利用上一层的输入，得到本层的输入:
+
+
+[![bp算法公式上一个到下个节点]](deeplearn/pre_to_cur.png)](docs/deeplearn/pre_to_cur.png)
+<!-- pre_to_cur.png -->
+
+得到输入值后，神经元要怎么做呢？我们先将单个神经元进行展开如图：
+
+[![单个神经元进行]](deeplearn/bp_weight.png)](docs/deeplearn/bp_weight.png)
+
+得到值后需要进行一个非线性转化，这个转化在神经网络中称为激活函数( Activation function )，这个激活函数是一个 S 函数：
+
+[![bp激活函数]](deeplearn/bp_s.jpg)](docs/deeplearn/bp_s.jpg)
+
+更新权重
+通过上面的传递规则，可以得到最终的输出，而训练实例中包含实际的值，因此可以得到训练和实际之间的误差。根据误差(error)反向传送。
+
+对于输出层的误差为：
+
+[![bp输出层的误差]](deeplearn/bp_error.png)](docs/deeplearn/bp_error.png)
+
+对隐藏层的误差：
+
+[![bp隐藏层的误差]](deeplearn/bp_hide_error.png)](docs/deeplearn/bp_hide_error.png)
+
+更新权重：
+
+[![bp更新权重]](deeplearn/bp_hide_weight.png)](docs/deeplearn/bp_hide_weight.png)
+
+这里的 l 是学习率。偏向更新：
+
+[![bp偏向更新]](deeplearn/bp_hide_weight_update.png)](docs/deeplearn/bp_hide_weight_update.png)
+
+
+### 训练的终止条件
+怎样才算是一个训练好了的神经网络呢？满足下面一个情况即可：
+
+权重的更新低于某个阈值，这个阈值是可以人工指定的；
+预测的错误率低于某个阈值；
+达到预设一定的循环次数。
+
+### BP 算法举例
+
+假设有一个两层的神经网络，结构，权重和数据集如下：
+
+[![demo]](deeplearn/demo_01.png)](docs/deeplearn/demo_01.png)
+
+计算误差和更新权重：
+
+[![demo误差和更新]](deeplearn/demo_01_error_w.png)](docs/deeplearn/demo_01_error_w.png)
+
+
+## 深度神经网络(DNN)
+
+深度神经网络（Deep Neural Networks， 以下简称DNN）是深度学习的基础，而要理解DNN，首先我们要理解DNN模型，下面我们就对DNN的模型与前向传播算法做一个总结。
 
 
 
