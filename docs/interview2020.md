@@ -1,7 +1,112 @@
 # 2020前端面试
 
+## 买卖股票最大的收益
+
+### 题目描述
+
+给定一个数组，它的第 i 个元素是一支给定股票第 i 天的价格。
+
+如果你最多只允许完成一笔交易（即买入和卖出一支股票一次），设计一个算法来计算你所能获取的最大利润。
+
+注意：你不能在买入股票前卖出股票。
+
+### 输入输出
+
+示例 1:
+
+输入: [7,1,5,3,6,4]
+
+输出: 5
+
+解释: 在第 2 天（股票价格 = 1）的时候买入，在第 5 天（股票价格 = 6）的时候卖出，最大利润 = 6-1 = 5 。
+
+注意利润不能是 7-1 = 6, 因为卖出价格需要大于买入价格；同时，你不能在买入前卖出股票。
+
+ 
+
+示例 2:
+
+输入: [7,6,4,3,1]
+
+输出: 0
+
+解释: 在这种情况下, 没有交易完成, 所以最大利润为 0。
+
+
+
+### 解答
+
+1）暴力法
+
+找出给定数组中两个数字之间的最大差值（即，最大利润）。此外，第二个数字（卖出价格）必须大于第一个数字（买入价格）。
+
+形式上，对于对于数组中的每一项i，需要在0-j（j<i）找出max(prices[j] - prices[i])。
+
+时间复杂度：O(n2) 。循环运行的次数决定
+
+空间复杂度：O(1)，只使用了常数个变量
+
+```javascript
+
+/**买股票，获取最大收益
+ * 暴力法
+ * @param {number[]} prices
+ * @return {number}
+ */
+var maxProfit = function(prices) {
+    if(prices.length <= 1){
+        return 0;
+    }
+    let max = 0; //最大收益，初始化为0
+    for(let i =1; i < prices.length; i++){  //从第二个元素开始进行遍历
+        for(let j = 0; j < i; j++){ //对每一个元素进行以下操作：与该元素前所有元素进行比较
+            if(prices[i] - prices[j] > max){  //如果收益大于max，更新max
+                max = prices[i] - prices[j];
+            }
+        }
+    }
+    return max;
+};
+console.log(maxProfit([7,1,5,3,6,4]));
+```
+
+
+
+2）贪心方法
+
+只要记录前面的最小价格，将这个最小价格作为买入价格，然后将当前的价格作为售出价格，查看当前收益是不是最大收益。
+
+```javascript
+/**买股票，获取最大收益
+ * 贪心策略
+ * @param {number[]} prices
+ * @return {number}
+ */
+var maxProfit = function(prices) {
+    if(prices.length <= 1){
+        return 0;
+    }
+    let max = 0; //最大收益，初始化为0
+    let minNumber = prices[0];  //保存当前最低买入价格，初始化为第一个元素
+    for(let i = 1; i < prices.length; i++){  //从第二个元素开始进行比较
+        if(prices[i] - minNumber > max){
+            max = prices[i] - minNumber;
+        }
+        if(minNumber > prices[i]){
+            minNumber = prices[i];
+        }
+    }
+    return max;
+};
+console.log(maxProfit([7,1,5,3,6,4]));
+```
+
+
+
+
 
 ## 节流
+
 老生常谈了，感觉没必要写太复杂
 ```javascript 
 
@@ -41,8 +146,8 @@ function debounce(func, wait) {
 }
 ```
 
-## 
-手写 Promise
+##  手写 Promise
+
 简单实现，基本功能都有了。
 ```javascript 
 const PENDING = 1;
@@ -267,7 +372,7 @@ Function.prototype.apply = function(context, args) {
   return res; 
 }
 
-``` 
+```
 
 ## 数组去重
 
