@@ -3,10 +3,10 @@
 分享技术
 ## 目录
 1. [前言](#README)
-1. [js代码片段](#docs/code)
-1. [js 排序算法](#docs/sort_algorithm)
-1. [一起探讨 JavaScript 的对象](#docs/object)
 1. [2020前端面试题](#docs/interview2020)
+1. [js 排序算法](#docs/sort_algorithm)
+1. [js代码片段](#docs/code)
+1. [一起探讨 JavaScript 的对象](#docs/object)
 1. [前端面试题](#docs/interview01)
 1. [前端面试题2](#docs/interview02)
 1. [cmd命令](#docs/cmd)
