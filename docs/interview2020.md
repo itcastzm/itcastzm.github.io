@@ -594,3 +594,5 @@ console.log(unique(arr))
 ## 友情链接
 
 https://github.com/haizlin/fe-interview
+https://note.youdao.com/ynoteshare1/index.html?id=59459d9adcf7326b888c3540e25887c6&type=note
+https://www.jianshu.com/p/c26c9c1c73f0
