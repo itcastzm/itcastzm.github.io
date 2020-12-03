@@ -3,6 +3,7 @@
 分享技术
 ## 目录
 1. [前言](#README)
+1. [js算法](#docs/js_algorithm)
 1. [2020前端面试题](#docs/interview2020)
 1. [js 排序算法](#docs/sort_algorithm)
 1. [js代码片段](#docs/code)
