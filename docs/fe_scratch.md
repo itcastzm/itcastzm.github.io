@@ -12,7 +12,12 @@
 9. HTML5 元素的分类
 10. 空元素定义
 11. link 标签定义
-12. 页面导入样式时，使用 link 和 @import 有什么区别？
+## 12. 页面导入样式时，使用 link 和 @import 有什么区别？
+    1.link标签属于html标签,@import是css提供的方式
+    2.link除了加载css，还可以做rss(简易联合)，rel属性,@import只能加载css
+    3.link引用的css同时被加载，@import引用的css等到页面加载完成后再加载,
+    4.link的权重的大于@import
+    5.兼容性的差别 @import不兼容IE5以下的,link完全兼容
 13. 你对浏览器的理解？
 14. 介绍一下你对浏览器内核的理解？
 15. 常见的浏览器内核比较
@@ -196,6 +201,16 @@ javascript 基础
 12. 在 js 中不同进制数字的表示方式
 13. js 中整数的安全范围是多少？
 14. typeof NaN 的结果是什么？
+typeof 检测对象，除开函数是function类型之外。像常见的数组，对象或者是正则,日期等等都是object；
+需要注意一下：
+```javascript
+typeof Symbol() // 'symbol'
+typeof null // object
+typeof undefined // undefined
+```
+typeof null检测输出object因为js最初版本，使用的是32位系统，类型的标签存储在每个单元的低位中000是object类型。null全是0，所以当我们使用typeof进行检测的时候js错误的判断为object
+
+
 15. isNaN 和 Number.isNaN 函数的区别？
 16. Array 构造函数只有一个参数值时的表现？
 17. 其他值到字符串的转换规则？
@@ -231,6 +246,25 @@ javascript 基础
 47. javascript 代码中的 "use strict"; 是什么意思 ? 使用它区别是什么？
 48. 如何判断一个对象是否属于某个类？
 49. instanceof 的作用？
+instanceOf用来判断右边的prototype是否在左边的原型链上，告诉我们左边是否是右边的实例。
+```javascript
+function instanceof(left, right) {
+    // 获得类型的原型
+    let prototype = right.prototype
+    // 获得对象的原型
+    left = left.__proto__
+    // 判断对象的类型是否等于类型的原型
+    while (true) {
+        if (left === null){
+            return false  
+        }
+        if (prototype === left){
+            return true
+        }
+        left = left.__proto__
+    }
+}
+```
 50. new 操作符具体干了什么呢？如何实现？
 51. Javascript 中，有一个函数，执行时对象查找时，永远不会去查找原型，这个函数是？
 52. 对于 JSON 的了解？
@@ -242,6 +276,16 @@ javascript 基础
 58. 同步和异步的区别？
 59. 什么是浏览器的同源政策？
 60. 如何解决跨域问题？
+目前暂时已知的跨域方法是：
+
+jsonp跨域，原理：script标签没有跨域限制的漏洞实现的一种跨域方法，只支持get请求。安全问题会受到威胁。
+cors跨域，通过后端服务器实现，Access-Control-Allow-Origin。
+postMessage window的一个属性方法。
+websocket
+nginx反向代理
+iframe跨域
+
+
 61. 服务器代理转发时，该如何处理 cookie？
 62. 简单谈一下 cookie ？
 63. 模块化开发怎么做？
@@ -315,10 +359,22 @@ javascript 基础
 131. Set 和 WeakSet 结构？
 132. Map 和 WeakMap 结构？
 133. 什么是 Proxy ？
+Object.defineProperty缺点：
+
+无法监控数组下标的变化，导致直接通过数组的下标给数组设置值。不能事实响应。vue内部通过数组的一些方法来监听。
+只能劫持对象的属性，因此要对每个对象的属性进行遍历。 vue2.x版本之后是通过递归和遍历实现对data对象的数据监控。
+proxy：
+
+可以劫持整个对象，并返回一个新的对象
+有多种劫持操作
+
 134. Reflect 对象创建目的？
 135. require 模块引入的查找方式？
 136. 什么是 Promise 对象，什么是 Promises/A 规范？
 137. 手写一个 Promise
+说一下async和await
+async/await其实是Promise的语法糖，它能实现的效果都能用then链来实现，这也和我们之前提到的一样，它是为优化then链而开发出来的。
+async是“异步”的简写，await译为等待，所以我们很好理解async声明function是异步的，await等待某个操作完成。当然语法上强制规定await只能出现在asnyc函数中，
 138. 如何检测浏览器所支持的最小字体大小？
 139. 怎么做 JS 代码 Error 统计？
 140. 单例模式模式是什么？
@@ -356,6 +412,16 @@ javascript 基础
 172. js 中倒计时的纠偏实现？
 173. 进程间通信的方式？
 174. 如何查找一篇英文文章中出现频率最高的单词？
+## 175.js的宏任务和微任务
+在 js 中，任务分为宏任务(macrotask)和微任务(microtask)，这两个任务分别维护一个队列，均采用先进先出的策略进行执行！同步执行的任务都在宏任务上执行。
+  
+宏任务主要有：script(整体代码)、setTimeout、setInterval、I/O、UI 交互事件、postMessage、MessageChannel、setImmediate(Node.js 环境)。
+  
+微任务主要有：Promise.then、 MutationObserver、 process.nextTick(Node.js 环境)。
+  
+具体的操作步骤如下：
+      从宏任务的头部取出一个任务执行；    执行过程中若遇到微任务则将其添加到微任务的队列中；    宏任务执行完毕后，微任务的队列中是否存在任务，若存在，则挨个儿出去执行，直到执行完毕；    GUI 渲染；    回到步骤 1，直到宏任务执行完毕；    
+这 4 步构成了一个事件的循环检测机制，即我们所称的eventloop。
 
 ## 框架
 Vue 常考基础知识点
@@ -365,7 +431,15 @@ Vue的生命周期
 Vue实现数据双向绑定的原理
 Vue组件间的参数传递
 Vue的路由实现：hash模式 和 history模式
-Vue与Angular以及React的区别
+### Vue与Angular以及React的区别
+
+vue使用的是template模版编写。react使用的是jsx语法。
+状态管理：react中的状态全部存入state中，通常修改的时候需要用到setState方法来更新状态。 vue中的state对象不是必须，vue是通过data属性在vue对象中进行管理
+监听数据的变化，vue劫持一些函数，能精确的知道数据变化。react中默认是通过比较引用的方式去进行，如果不优化使用shouldComponentUpdate/PureComponent方法优化，那会导致大量的虚拟dom重新渲染
+数据流不同：vue可以进行组件与dom之间v-modle双向绑定。react从始至终都只有单向数据流
+vue中使用的是mixins。react使用的是Hoc高阶组件
+
+
 Vue路由的钩子函数
 Vuex是什么？怎么使用？哪种功能场景使用它？
 Vue-cli如何新增自定义指令
@@ -376,13 +450,30 @@ React 常考基础知识点
 React 常考进阶知识点
 
 ## 浏览器
-事件机制
+
+## 事件机制
 事件触发三阶段
 事件触发有三个阶段
 
 window往事件触发处传播，遇到注册的捕获事件会触发
 传播到事件触发处时触发注册的事件
 从事件触发处往window传播，遇到注册的冒泡事件会触发
+
+## Load 和 DOMContentLoaded 区别
+Load 事件触发代表页面中的 DOM，CSS，JS，图片已经全部加载完毕。
+
+DOMContentLoaded 事件触发代表初始的 HTML 被完全加载和解析，不需要等待 CSS，JS，图片加载。
+
+## DNS是如何解析的？如何优化
+浏览器缓存 -> 本地缓存-> hosts文件 -> 路由器缓存 -> ISP DNS缓存 -> DNS递归查询
+
+## 强缓存和协商缓存
+强缓存和协商缓存。强缓存通过响应头实现：expires和cache-control。它表示在缓存期间不需要在发起请求。协商缓存：如果缓存过期，可以使用协商缓存解决问题。
+
+协商缓存是需要发起请求。协商缓存需要客户端和服务端共同实现。
+## html5的离线存储技术
+html5的离线存储技术，是基于一个新建的.appcache文件的缓存机制（并不是存储技术）。通过这个文件上的解析清单离线存储资源，这些资源就会想cookie一样被存下来。之后网络处于离线状态时，浏览器会通过被离线存储的数据进行页面展示。
+
 
 
 

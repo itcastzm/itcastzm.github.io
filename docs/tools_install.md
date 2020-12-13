@@ -1,15 +1,22 @@
 # 各种软件工具安装
 
-
 ## mysql安装
+
 ### windows下mysql 8.0.15 详细安装使用教程
+
 1. 官网下载zip 
+
 下载community 社区版
+
 2. 解压，复制到指定目录。新建data文件。添加环境变量
+
 注意需要新建data文件  可以在解压后的文件夹里面建也可以在自定义的地方新建data文件夹
+
 3. 将mysql解压目录（安装目录）bin目录路径添加到系统环境变量path中 方便cmd命令行调用
-4. 新建my.ini文件
-```
+4. 在解压目录下新建my.ini文件
+
+``` 
+
 [mysqld]
 # 设置3306端口
 port=3306
@@ -36,9 +43,15 @@ default-character-set=utf8
 port=3306
 default-character-set=utf8
 ```
+
 5. 管理员运行命令行窗口 配置MySQL
+
+需要cd 到 mysql解压目录 
+D:\\MySQL\\mysql-8.0.15-winx64\\bin
+
 打开命令界面 输入：
-```shell
+
+``` shell
 mysqld --install --console
 //再次  并注意观察控制台 打印出的密码  需要记住
 mysqld --initialize --console 
@@ -46,7 +59,7 @@ mysqld --initialize --console
 
 6. 启动mysql服务
 
-```shell
+``` shell
 net start mysql
 //如果说服务名无效
 mysqld --install --console根据提示说服务已经存在，但还是服务名无效，后来我把console参数去掉，执行
@@ -58,7 +71,7 @@ net start mysql
 
 7. 启动登录
 
-```shell
+``` shell
 mysql -u root -p   //回车，输入默认的那个极其安全的密码。
 // 使用数据库：
 use mysql
